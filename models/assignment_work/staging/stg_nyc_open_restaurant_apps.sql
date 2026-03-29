@@ -39,7 +39,7 @@ cleaned AS (
         -- Zip code cleaning
         CASE
             WHEN UPPER(TRIM(CAST(zip AS STRING))) IN ('N/A', 'NA') THEN NULL
-            WHEN UPPER(TRIM(CAST(incident_zip AS STRING))) = 'ANONYMOUS' THEN 'Anonymous'
+            WHEN UPPER(TRIM(CAST(zip AS STRING))) = 'ANONYMOUS' THEN 'Anonymous'
             WHEN LENGTH(CAST(zip AS STRING)) = 5 THEN CAST(zip AS STRING)
             WHEN LENGTH(CAST(zip AS STRING)) = 9 THEN CAST(zip AS STRING)
             WHEN LENGTH(CAST(zip AS STRING)) = 10
